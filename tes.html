@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMEDA TKJ | Portal Belajar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0e27e1;
+            --light-blue: #bdd9fa;
+            --accent-blue: #274afc;
+            --dark-text: #000000;
+            --white: #93ccfe;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #197ae8; 
+            color: var(--dark-text);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            padding: 4rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(17, 6, 6, 0.1);
+            position: relative;
+        }
+
+        /* --- Styling Dropdown Menu Titik Tiga --- */
+        .menu-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+        }
+
+        .menu-titik {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .menu-titik:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-titik span {
+            width: 5px;
+            height: 5px;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .dropdown-content a {
+            color: var(--primary-blue);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-blue);
+        }
+
+        /* Class untuk memunculkan menu via JS */
+        .show {
+            display: block;
+        }
+        /* ---------------------------------- */
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: -0.025em;
+        }
+
+        /* Navigasi dikosongkan karena menu pindah ke atas */
+        nav {
+            background: var(--white);
+            padding: 0.5rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 { color: var(--primary-blue); margin-top: 0; }
+        h6 { color: #0256ff; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 2rem; }
+
+        ul { list-style: none; padding: 0; }
+
+        li {
+            background: var(--light-blue);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid var(--accent-blue);
+        }
+
+        li b {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        li p { margin: 0; color: #4b5563; }
+
+        .video-box1, .video-box2 {
+            margin-top: 20px;
+            padding: 25px;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .video-box1 { background: rgb(14, 123, 224) }
+        .video-box2 { background: rgb(14, 123, 224) }
+
+        button {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background-color: rgba(17, 38, 227, 0.54) ;
+            color:#000000; 
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .container { width: 90%; padding: 20px; }
+            header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="menu-container">
+            <div class="menu-titik" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="https://drive.google.com/drive/folders/1MdL19HBTDsc3BzzPT7H2rFTHKe34x_y8" target="_blank">11 TKJ Viral</a>
+                <a href="prb.html">Tentang Saya</a>
+                <a href="solar.html">Solar System</a>
+                <a href="#">Galeri Kelas</a>
+            </div>
+        </div>
+
+        <h1>Selamat Datang di Website 11 TKJ</h1>
+        <p style="opacity: 0.9;">Membangun Masa Depan dengan Teknologi Jaringan</p>
+    </header>
+
+    <nav>
+        <small style="color: var(--primary-blue); font-weight: bold;">Dasar-Dasar Jurusan TKJ</small>
+    </nav>
+
+    <div class="container">
+        <h2>Hello World!</h2>
+        <h6>Materi Pelajaran Jurusan TKJ</h6>
+        
+        <ul> 
+            <li>
+                <b>Teknologi Layanan Jaringan</b>
+                <p>Mempelajari cara mengelola dan menyediakan layanan jaringan seperti DNS, DHCP, dan web server.</p>
+            </li>
+            <li>
+                <b>Administrasi Sistem Jaringan</b>
+                <p>Fokus pada pengaturan, pemeliharaan, dan troubleshooting sistem operasi jaringan.</p>
+            </li>
+            <li>
+                <b>Keamanan Jaringan</b>
+                <p>Membahas teknik melindungi jaringan dari serangan, malware, dan akses tidak sah.</p>
+            </li>
+            <li>
+                <b>Dasar-Dasar Arduino Uno</b>
+                <p>Pengenalan mikrokontroler Arduino untuk proyek IoT dan otomasi sederhana.</p>
+            </li>
+        </ul>
+
+        <div class="video-box1">
+            <h5 style="margin-top: 0; font-size: 1rem;">Video Penjelasan Dasar-Dasar TKJ</h5>
+            <a href="https://drive.google.com/drive/folders/1bT98vqj_JdOkEZxNp1I5zdeaIfH54oap" target="_blank">
+                <button>Lihat Materi Video</button>
+            </a>
+        </div>
+        
+        <div class="video-box2">
+            <h5 style="margin-top: 0; font-size: 1rem;">Video Penjelasan Dasar-Dasar TKJ</h5>
+            <a href="https://drive.google.com/drive/folders/1bT98vqj_JdOkEZxNp1I5zdeaIfH54oap" target="_blank">
+                <button>Lihat Materi Video</button>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Dibuat dengan bangga oleh <strong>Rinno Wardanu</strong></p>
+    </footer>
+
+    <script>
+        /* Fungsi untuk buka-tutup menu */
+        function toggleMenu() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        /* Menutup menu jika user mengklik di luar area menu */
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-titik') && !event.target.matches('.menu-titik span')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
